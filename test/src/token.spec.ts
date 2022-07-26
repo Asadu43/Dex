@@ -29,14 +29,12 @@ describe("DEX Token", function () {
     const DEX = await ethers.getContractFactory("DEX", owner);
     dexToken = await DEX.deploy(asad20.address);
 
-    // hre.tracer.nameTags[dexToken.address] = "TEST-TOKEN";
+    hre.tracer.nameTags[dexToken.address] = "DEX-TOKEN";
   });
 
 
   it("Buy Token without transfer token to contract", async function () {
     await expect( dexToken.connect(user).buy(({value:parseEther("3")}))).to.be.revertedWith("Not enough tokens in the reserve")
-    // console.log(await BigNumber.from(await asad20.balanceOf(user.address)))
-    // console.log(await dexToken.getBalanceOfToken())
   })
   it("Buy Token without Amount", async function () {
     await expect(dexToken.connect(user).buy()).to.be.revertedWith("You need to send some ether")
