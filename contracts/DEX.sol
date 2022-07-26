@@ -13,7 +13,7 @@ contract DEX {
     uint public totalPrice;
 
     constructor(address _tokenAddress) {
-        token =  Asad20(address(_tokenAddress));
+        token =  Asad20(_tokenAddress);
     }
 
 function buy() payable public {
