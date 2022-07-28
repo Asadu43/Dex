@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract Asad20 is ERC20 {
     constructor() ERC20("Asad", "RT") {
-        _mint(msg.sender, 1000000 * 10**18);
+        _mint(msg.sender, 10000 * 10 ** 18);
     }
     
 }
